@@ -1,7 +1,9 @@
-const package = require('./package.json');
-const packageName = package.name;
-const loaderUtils = require('loader-utils');
+"use strict";
 const path = require('path');
+const loaderUtils = require('loader-utils');
+const packageData = require('./package.json');
+
+const packageName = packageData.name;
 
 function isString(string) {
 	return typeof string === 'string' || string instanceof String
@@ -15,18 +17,18 @@ module.exports = function (source) {
 		if (index !== -1) {
 			// Если обработчик указан как строка, пытаемся найти в проекте соответствующий файл
 			if (isString(handler)) {
-				handlerPath = path.resolve(handler);
+				let handlerPath = path.resolve(handler);
 				try {
 					handler = require(handlerPath);
 				} catch (error) {
-					error.message += `${packageName} => handler in ${handlerPath} is not found`;
+					error.message += `${packageName} => handler is not found in ${handlerPath}`;
 					throw error;
 				}
 			}
 			let replacement;
 			if (handler instanceof Function) {
 				// Получаем замену для placeholder'а
-				replacement = handler.apply(this, [...arguments])
+				replacement = handler.apply(this, arguments)
 			} else {
 				throw new Error(`${packageName} => handler in not a function`);
 			}
