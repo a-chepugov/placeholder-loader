@@ -35,8 +35,14 @@ module.exports = function (source) {
 					throw new Error(`${packageName} => handler in not a function`);
 				}
 				if (isString(replacement)) {
-					// Подменяем placeholder на replacement
-					return source.replace(placeholder, replacement)
+					if (isString(replacement)) {
+						// Подменяем placeholder на replacement
+						let result = source;
+						while (result.includes(placeholder)) {
+							result = result.replace(placeholder, replacement)
+						}
+						return result
+					}
 				}
 			}
 		}
