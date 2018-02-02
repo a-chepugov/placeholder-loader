@@ -4,7 +4,7 @@ const package = require('./package.json');
 const {name, version} = package;
 
 const paths = {
-	source: 'index.js',
+	source: './index.js',
 	doc: 'doc',
 };
 

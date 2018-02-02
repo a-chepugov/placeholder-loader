@@ -1,6 +1,6 @@
 {
   "name": "placeholder-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "webpack loader",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,10 @@
   },
   "keywords": [
     "webpack",
-    "loader"
+    "loader",
+		"placeholder"
   ],
-  "author": "a.chepugov",
+  "author": "Alexey Chepugov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/a-chepugov/placeholder-loader/issues"
@@ -27,7 +28,7 @@
     "chai": "^4.1.2",
     "del": "^3.0.0",
     "documentation": "^5.3.5",
-    "gulp": "4",
+    "gulp": "^4",
     "gulp-documentation": "^3.2.1",
     "mocha": "^5.0.0"
   }
