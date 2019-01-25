@@ -1,0 +1,4 @@
+/**
+ * placeholder
+ */
+var b = a;
